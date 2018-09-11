@@ -1,3 +1,7 @@
+var paleta = $("#paleta");
+
+var grillaPixeles = $("#grilla-pixeles");
+
 var nombreColores = ['White', 'LightYellow',
   'LemonChiffon', 'LightGoldenrodYellow', 'PapayaWhip', 'Moccasin', 'PeachPuff', 'PaleGoldenrod', 'Bisque', 'NavajoWhite', 'Wheat', 'BurlyWood', 'Tan',
   'Khaki', 'Yellow', 'Gold', 'Orange', 'DarkOrange', 'OrangeRed', 'Tomato', 'Coral', 'DarkSalmon', 'LightSalmon', 'LightCoral', 'Salmon', 'PaleVioletRed',
@@ -33,3 +37,31 @@ colorPersonalizado.addEventListener('change',
 
   })
 );
+
+function agregarColoresPaleta() {
+  for (let i = 0; i < nombreColores.length; i++) {
+    var colorDePaleta = nombreColores[i];
+    
+    var div = $('<div>');
+    div.addClass('color-paleta').css('background-color', colorDePaleta);
+
+    paleta.append(div);
+  }
+}
+
+function crearGrillaPixelArt() {
+    for (let i = 0; i < 1750; i++) {
+        var div = $('<div>');
+        
+        grillaPixeles.append(div);
+    }
+}
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////
+
+agregarColoresPaleta();
+crearGrillaPixelArt();
