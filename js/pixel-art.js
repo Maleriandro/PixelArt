@@ -57,6 +57,12 @@ function crearGrillaPixelArt() {
     }
 }
 
+function cambiarColorSeleccionado() {
+    var color = $(this).css('background-color');
+
+    $('#indicador-de-color').css('background-color', color);
+}
+
 
 
 
@@ -65,3 +71,5 @@ function crearGrillaPixelArt() {
 
 agregarColoresPaleta();
 crearGrillaPixelArt();
+
+$('.color-paleta').on('click', cambiarColorSeleccionado);
