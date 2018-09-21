@@ -1,5 +1,9 @@
 var paleta = $("#paleta");
 
+var clickApretado = false;
+
+var color = "rgb(255, 255, 255)";
+
 var grillaPixeles = $("#grilla-pixeles");
 
 var nombreColores = ['White', 'LightYellow',
@@ -57,15 +61,59 @@ function crearGrillaPixelArt() {
     }
 }
 
+function elegirColorDeRuedaColores() {
+  color = colorPersonalizado.value;
+
+  $('#indicador-de-color').css('background-color', color);
+}
+
 function cambiarColorSeleccionado() {
-    var color = $(this).css('background-color');
+    color = $(this).css('background-color');
 
     $('#indicador-de-color').css('background-color', color);
 }
 
+function pintarPixel() {
+    $(this).css('background-color', color);        
+}
 
+function pintar() {
+  if (clickApretado) {
+    $(this).css('background-color', color);
+  }       
+}
 
+function borrarTodo() {
+    $('#grilla-pixeles div').animate({
+        'background-color': '#ffffff'
+    }, 3000);
+}
 
+function seleccionarSuperheroe() {
+    var superheroe = $(this).attr('id');
+    
+    switch (superheroe) {
+        case 'batman':
+            cargarSuperheroe(batman);
+            break;
+        
+        case 'batman':
+            cargarSuperheroe(batman);
+            break;
+        
+        case 'batman':
+            cargarSuperheroe(batman);
+            break;
+        
+        case 'batman':
+            cargarSuperheroe(batman);
+            break;
+        
+        
+        default:
+            break;
+    }
+}
 
 ////////////////////////////////////////////////////////////////////////////
 
@@ -73,3 +121,18 @@ agregarColoresPaleta();
 crearGrillaPixelArt();
 
 $('.color-paleta').on('click', cambiarColorSeleccionado);
+$('#grilla-pixeles div').on('click', pintarPixel);
+$('#color-personalizado').on('change', elegirColorDeRuedaColores);
+
+$('html').mousedown(function() {
+    clickApretado = true;
+
+}).mouseup(function() {
+    clickApretado = false;
+});
+
+$('#grilla-pixeles div').mousemove(pintar);
+
+$('#borrar').click(borrarTodo);
+
+$('.imgs img').click(seleccionarSuperheroe)
