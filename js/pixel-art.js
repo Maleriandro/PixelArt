@@ -32,16 +32,6 @@ var nombreColores = ['White', 'LightYellow',
 // Es decir, el que se elige con la rueda de color.
 var colorPersonalizado = document.getElementById('color-personalizado');
 
-colorPersonalizado.addEventListener('change', 
-  (function() {
-    // Se guarda el color de la rueda en colorActual
-    colorActual = colorPersonalizado.value;
-    // Completar para que cambie el indicador-de-color al colorActual
-
-
-  })
-);
-
 function agregarColoresPaleta() {
   for (let i = 0; i < nombreColores.length; i++) {
     var colorDePaleta = nombreColores[i];
@@ -97,16 +87,16 @@ function seleccionarSuperheroe() {
             cargarSuperheroe(batman);
             break;
         
-        case 'batman':
-            cargarSuperheroe(batman);
+        case 'wonder':
+            cargarSuperheroe(wonder);
             break;
         
-        case 'batman':
-            cargarSuperheroe(batman);
+        case 'flash':
+            cargarSuperheroe(flash);
             break;
         
-        case 'batman':
-            cargarSuperheroe(batman);
+        case 'invisible':
+            cargarSuperheroe(invisible);
             break;
         
         
@@ -136,3 +126,5 @@ $('#grilla-pixeles div').mousemove(pintar);
 $('#borrar').click(borrarTodo);
 
 $('.imgs img').click(seleccionarSuperheroe)
+
+$('#guardar').click(guardarPixelArt);
